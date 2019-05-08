@@ -4,7 +4,7 @@
     ViewBag.Title = "Home";
 }
 
-<h2>Listagem de Carros</h2>
+<h3>Listagem de Carros</h3>
 
 <hr />
 <br />
@@ -21,8 +21,8 @@
 <br />
 <br />
 
-<div class="panel panel-primary">
-    <div class="panel-heading">Pesquisa</div>
+<div class="panel panel-default" style="border-color: black;">
+    <div class="panel-heading" style="background-color: orange; font-weight: bold; font-size: 16px;">Pesquisa</div>
     <div class="panel-body">
         @using (@Ajax.BeginForm("PesquisarCarrosPorDescricaoEModelo", "Carro",
                             new AjaxOptions
