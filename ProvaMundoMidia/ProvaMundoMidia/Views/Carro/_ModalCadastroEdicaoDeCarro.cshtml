@@ -13,7 +13,7 @@
                                 UpdateTargetId = ViewBag.Acao == "CadastrarCarro" ? "tblCarros" : "",
                                 OnSuccess = ViewBag.Acao == "CadastrarCarro" ? "exibirAlertaDeSucesso('Carro cadastrado com sucesso!', 'modalCadastroEdicaoDeCarros')" : "exibirMensagemDeRetorno",
                                 OnFailure = "exibirMensagemDeRetorno",
-                                OnComplete = "atualizaLinhaTabelaCarro(" + "'" + Model.IdCarro + "'" + ", 'EditarCarro')"
+                                OnComplete = "atualizaLinhaTabelaCarro(" + "'" + Model.IdCarro + "'" + ", '" + ViewBag.Acao + "')"
                             }, new { @id = "formCadastroEdicaoDeCarro" }
                             ))
         {

@@ -9,6 +9,18 @@
 <hr />
 <br />
 
+@Ajax.ActionLink("Cadastrar novo carro", "ObterModalCadastroEdicaoDeCarro", "Carro", new { idCarro = 0 }, new AjaxOptions()
+{
+    UpdateTargetId = "cadastroEdicaoCarroPartial",
+    InsertionMode = InsertionMode.Replace,
+    LoadingElementDuration = 0,
+    OnSuccess = "exibirModalCadastroEdicaoDeCarro"
+}, new { @class = "btn btn-success" })
+
+<br />
+<br />
+<br />
+
 <div class="panel panel-primary">
     <div class="panel-heading">Pesquisa</div>
     <div class="panel-body">

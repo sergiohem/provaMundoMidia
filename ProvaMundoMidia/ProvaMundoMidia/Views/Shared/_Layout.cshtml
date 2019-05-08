@@ -22,15 +22,6 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Carro")</li>
-                    <li>
-                        @Ajax.ActionLink("Cadastrar carro", "ObterModalCadastroEdicaoDeCarro", "Carro", new { idCarro = 0 }, new AjaxOptions()
-                   {
-                       UpdateTargetId = "cadastroEdicaoCarroPartial",
-                       InsertionMode = InsertionMode.Replace,
-                       LoadingElementDuration = 0,
-                       OnSuccess = "exibirModalCadastroEdicaoDeCarro"
-                   })
-                    </li>
                 </ul>
             </div>
         </div>

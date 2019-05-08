@@ -60,7 +60,7 @@ namespace ProvaMundoMidia.Controllers
                 {
                     carroDAO.Inserir(carro);
                     List<Carro> listaDeCarrosAtualizada = new CarroDAO().RetornarTodos();
-                    return PartialView("_TabelaCarros.cshtml", listaDeCarrosAtualizada);
+                    return PartialView("~/Views/Carro/_TabelaCarros.cshtml", listaDeCarrosAtualizada);
                 }
                 else
                 {
@@ -100,7 +100,7 @@ namespace ProvaMundoMidia.Controllers
             Carro carro = carroDAO.BuscarCarroPorId(idCarroEditado);
             if (carro != null)
             {
-                return PartialView("_LinhaTabelaCarros.cshtml", carro);
+                return PartialView("~/Views/Carro/_LinhaTabelaCarros.cshtml", carro);
             }
             return null;
         }
@@ -115,7 +115,7 @@ namespace ProvaMundoMidia.Controllers
             }
 
             List<Carro> carrosEncontrados = carroDAO.BuscarCarrosPorDescricaoEModelo(formulario["buscaDescricaoCarro"], formulario["buscaModeloCarro"], anoBusca);
-            return PartialView("_TabelaCarros.cshtml", carrosEncontrados);
+            return PartialView("~/Views/Carro/_TabelaCarros.cshtml", carrosEncontrados);
         }
 
         public ActionResult ExcluirCarro(int idCarro)

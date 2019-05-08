@@ -10,7 +10,7 @@
     InsertionMode = InsertionMode.Replace,
     LoadingElementDuration = 0,
     OnSuccess = "exibirModalDetalhamentoDeCarro"
-}, new { @class = "btn btn-warning btn-xs"})
+}, new { @class = "btn btn-success btn-xs"})
 
     @Ajax.ActionLink("Editar", "ObterModalCadastroEdicaoDeCarro", "Carro", new { idCarro = Model.IdCarro, acao = "EditarCarro" }, new AjaxOptions()
 {
