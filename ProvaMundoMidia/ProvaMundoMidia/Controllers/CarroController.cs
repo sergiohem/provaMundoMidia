@@ -67,7 +67,7 @@ namespace ProvaMundoMidia.Controllers
                     {
                         notif.Mensagem = "Carro não encontrado!";
                         notif.Tipo = TipoNotificacao.SumirSozinha;
-                        notif.Tema = TemaNotificacao.Erro;
+                        notif.Tema = TemaNotificacao.Informacao;
 
                         return Json(notif, JsonRequestBehavior.AllowGet);
                     }
@@ -91,6 +91,54 @@ namespace ProvaMundoMidia.Controllers
                 return PartialView("~/Views/Carro/_LinhaTabelaCarros.cshtml", carro);
             }
             return null;
+        }
+
+        public PartialViewResult PesquisarCarrosPorDescricaoEModelo(FormCollection formulario)
+        {
+            int anoBusca = -1;
+
+            if (!string.IsNullOrEmpty(formulario["buscaAnoCarro"]))
+            {
+                anoBusca = Convert.ToInt32(formulario["buscaAnoCarro"]);
+            }
+
+            List<Carro> carrosEncontrados = carroDAO.BuscarCarrosPorDescricaoEModelo(formulario["buscaDescricaoCarro"], formulario["buscaModeloCarro"], anoBusca);
+            return PartialView("~/Views/Carro/_TabelaCarros.cshtml", carrosEncontrados);
+        }
+
+        public ActionResult ExcluirCarro(int idCarro)
+        {
+            Notificacao notif = new Notificacao();
+            try
+            {
+                Carro carro = carroDAO.BuscarCarroPorId(idCarro);
+                if (carro != null)
+                {
+                    carroDAO.Excluir(carro);
+                    notif.Mensagem = "Carro excluído com sucesso!";
+                    notif.Tipo = TipoNotificacao.SumirSozinha;
+                    notif.Tema = TemaNotificacao.Sucesso;
+
+                    return Json(notif, JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    notif.Mensagem = "Carro não encontrado!";
+                    notif.Tipo = TipoNotificacao.SumirSozinha;
+                    notif.Tema = TemaNotificacao.Informacao;
+
+                    return Json(notif, JsonRequestBehavior.AllowGet);
+                }
+            }
+            catch (Exception ex)
+            {
+                notif.Mensagem = "Erro ao excluir carro!";
+                notif.Tipo = TipoNotificacao.SumirSozinha;
+                notif.Tema = TemaNotificacao.Erro;
+
+                return Json(notif, JsonRequestBehavior.AllowGet);
+            }
+            
         }
     }
 }

@@ -80,12 +80,33 @@ namespace ProvaMundoMidia.DAOs
             
         }
 
-        public List<Carro> ConsultarCarrosPorNome(string busca)
+        public List<Carro> BuscarCarrosPorDescricaoEModelo(string descricaoBusca, string modeloBusca, int anoBusca)
         {
-            string sql = "select * from carro where descricao like @nome";
+            string sql = "select * from carro";
+
+            if (!string.IsNullOrEmpty(descricaoBusca) && !string.IsNullOrEmpty(modeloBusca) && anoBusca != -1)
+            {
+                sql += " where descricao like @descricao and modelo like @modelo and ano = @ano";
+            }
+            else if (!string.IsNullOrEmpty(descricaoBusca))
+            {
+                sql += " where descricao like @descricao";
+            }
+            else if (!string.IsNullOrEmpty(modeloBusca))
+            {
+                sql += " where modelo like @modelo";
+            }
+            else if (anoBusca != -1)
+            {
+                sql += " where ano = @ano";
+            }
+
+            sql += " order by descricao";
 
             MySqlCommand comando = new MySqlCommand(sql);
-            comando.Parameters.Add(new MySqlParameter("nome", "%" + busca + "%"));
+            comando.Parameters.Add(new MySqlParameter("descricao", "%" + descricaoBusca + "%"));
+            comando.Parameters.Add(new MySqlParameter("modelo", "%" + modeloBusca + "%"));
+            comando.Parameters.Add(new MySqlParameter("ano", anoBusca));
 
             var carrosEncontrados = RetornarDataTable(comando);
             List<Carro> listaCarros = new List<Carro>();

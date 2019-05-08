@@ -4,9 +4,48 @@
     ViewBag.Title = "Home";
 }
 
-<h1>Listagem de Carros</h1>
+<h2>Listagem de Carros</h2>
 
+<hr />
 <br />
+
+<div class="panel panel-primary">
+    <div class="panel-heading">Pesquisa</div>
+    <div class="panel-body">
+        @using (@Ajax.BeginForm("PesquisarCarrosPorDescricaoEModelo", "Carro",
+                            new AjaxOptions
+                            {
+                                HttpMethod = "POST",
+                                LoadingElementDuration = 0,
+                                UpdateTargetId = "tblCarros"
+                            }, new { @class = "form-inline" }
+                            ))
+        {
+            <div class="form-group">
+                <label>Descrição</label>
+                <input type="text" class="form-control" name="buscaDescricaoCarro" />
+            </div>
+            <div class="form-group"></div>
+            <div class="form-group"></div>
+            <div class="form-group">
+                <label>Modelo</label>
+                <input type="text" class="form-control" name="buscaModeloCarro" />
+            </div>
+            <div class="form-group"></div>
+            <div class="form-group"></div>
+            <div class="form-group">
+                <label>Ano</label>
+                <input type="number" min="0" class="form-control" name="buscaAnoCarro" />
+            </div>
+            <div class="form-group"></div>
+            <div class="form-group"></div>
+            <div class="form-group"></div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-warning">Buscar</button>
+            </div>
+        }
+    </div>
+</div>
 
 <div id="tblCarros">
     @Html.Partial("_TabelaCarros", Model)
