@@ -4,6 +4,14 @@
 <td>@Model.Modelo</td>
 <td>@Model.Ano</td>
 <td>
+    @Ajax.ActionLink("Detalhes", "ObterModalDetalhamentoDeCarro", "Carro", new { idCarro = Model.IdCarro }, new AjaxOptions()
+{
+    UpdateTargetId = "cadastroEdicaoCarroPartial",
+    InsertionMode = InsertionMode.Replace,
+    LoadingElementDuration = 0,
+    OnSuccess = "exibirModalDetalhamentoDeCarro"
+}, new { @class = "btn btn-warning btn-xs"})
+
     @Ajax.ActionLink("Editar", "ObterModalCadastroEdicaoDeCarro", "Carro", new { idCarro = Model.IdCarro, acao = "EditarCarro" }, new AjaxOptions()
 {
     UpdateTargetId = "cadastroEdicaoCarroPartial",

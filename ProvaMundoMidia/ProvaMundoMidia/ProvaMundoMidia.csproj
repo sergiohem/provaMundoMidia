@@ -189,7 +189,8 @@
     <Content Include="Views\Carro\Index.cshtml" />
     <Content Include="Views\Carro\_TabelaCarros.cshtml" />
     <Content Include="Views\Carro\_LinhaTabelaCarros.cshtml" />
-    <Content Include="Views\Carro\_ModalCadastroEdicaoDeCarros.cshtml" />
+    <Content Include="Views\Carro\_ModalCadastroEdicaoDeCarro.cshtml" />
+    <Content Include="Views\Carro\_ModalDetalhamentoDeCarro.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

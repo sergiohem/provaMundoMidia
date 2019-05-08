@@ -1,0 +1,31 @@
+﻿@model ProvaMundoMidia.Models.Carro
+@{
+    Layout = null;
+}
+
+<div id="modalDetalhamentoDeCarro" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Detalhamento de Carro</h4>
+            </div>
+            <div class="modal-body">
+                <p style="font-size: 14px;">
+                    <strong>Descrição:</strong> @Model.Descricao<br />
+                    <strong>Modelo:</strong> @Model.Modelo<br />
+                    <strong>Ano:</strong> @Model.Ano
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+

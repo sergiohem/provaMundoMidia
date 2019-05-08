@@ -2,6 +2,10 @@
     $("#modalCadastroEdicaoDeCarro").modal('show');
 }
 
+function exibirModalDetalhamentoDeCarro() {
+    $("#modalDetalhamentoDeCarro").modal('show');
+}
+
 function atualizaLinhaTabelaCarro(idCarro, acao) {
     FecharModal("modalCadastroEdicaoDeCarro");
     var fadeoutDone = $("#linha_carro_" + idCarro).fadeOut().promise();
