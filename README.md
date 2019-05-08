@@ -24,7 +24,7 @@ A classe "Carro" possui os seguintes atributos: descrição, modelo e ano.
 Siga os passos abaixo para executar o projeto em seu computador:
 </p>
 <ol>
-<li>Faça o download do projeto pelo link a seguir: LINK AQUI.</li>
+<li>Faça o download do projeto pelo link a seguir: https://github.com/sergiohem/provaMundoMidia.git.</li>
 <li>Extraia o arquivo .ZIP baixado em uma pasta de sua preferência.</li>
 <li>Abra a pasta extraída, e localize o arquivo <strong>"prova_mundo_midia_db.sql"</strong>. Em seguida, importe e execute esse arquivo na sua ferramenta de gerenciamento de banco de dados, para que o banco de dados seja criado.</li>
 <li>Abra a pasta "ProvaMundoMidia" e localize a <i>solution</i> <strong>"ProvaMundoMidia.sln"</strong>. Em seguida, execute essa <i>solution</i> em uma IDE de sua preferência.</li>
