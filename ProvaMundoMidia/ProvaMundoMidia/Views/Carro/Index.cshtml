@@ -1,0 +1,17 @@
+﻿@model IEnumerable<ProvaMundoMidia.Models.Carro>
+
+@{
+    ViewBag.Title = "Home";
+}
+
+<h1>Listagem de Carros</h1>
+
+<br />
+
+<div id="tblCarros">
+    @Html.Partial("_TabelaCarros", Model)
+</div>
+
+<div id="cadastroEdicaoCarroPartial">
+
+</div>

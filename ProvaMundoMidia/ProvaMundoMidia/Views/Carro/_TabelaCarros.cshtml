@@ -1,0 +1,25 @@
+﻿@model IEnumerable<ProvaMundoMidia.Models.Carro>
+
+<table class="table table-striped table-bordered table-responsive">
+    <tr>
+        <th>
+            Descrição
+        </th>
+        <th>
+            Modelo
+        </th>
+        <th>
+            Ano
+        </th>
+    </tr>
+
+    @foreach (ProvaMundoMidia.Models.Carro carro in Model)
+    {
+        <tr id="linha_carro_@carro.IdCarro">
+            @Html.Partial("/Views/Carro/_LinhaTabelaCarros.cshtml", carro)
+        </tr>
+    }
+
+
+</table>
+
