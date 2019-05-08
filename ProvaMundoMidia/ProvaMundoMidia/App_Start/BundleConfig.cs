@@ -14,6 +14,14 @@ namespace ProvaMundoMidia
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
 
+            bundles.Add(new ScriptBundle("~/bundles/ajax").Include(
+                        "~/Scripts/jquery.unobtrusive-ajax.min.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/js").Include(
+                        "~/Scripts/base.js",
+                        "~/Scripts/toastr.min.js",
+                        "~/Scripts/cadastroEdicaoDeCarros.js"));
+
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at https://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
@@ -24,7 +32,8 @@ namespace ProvaMundoMidia
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/toastr.min.css"));
         }
     }
 }

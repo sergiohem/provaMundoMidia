@@ -3,3 +3,22 @@
 <td>@Model.Descricao</td>
 <td>@Model.Modelo</td>
 <td>@Model.Ano</td>
+<td>
+    @Ajax.ActionLink("Editar", "ObterModalCadastroEdicaoDeCarro", "Carro", new { idCarro = Model.IdCarro, acao = "EditarCarro" }, new AjaxOptions()
+{
+    UpdateTargetId = "cadastroEdicaoCarroPartial",
+    InsertionMode = InsertionMode.Replace,
+    LoadingElementDuration = 0,
+    OnSuccess = "exibirModalCadastroEdicaoDeCarro"
+}, new { @class = "btn btn-info btn-xs"})
+
+    @Ajax.ActionLink("Excluir", "ExcluirCarro", "Carro", new { idCarro = Model.IdCarro }, new AjaxOptions()
+{
+    UpdateTargetId = "",
+    Confirm = "Deseja realmente excluir este carro?",
+    LoadingElementDuration = 0,
+    OnComplete = "atualizaLinhaTabelaCarro(" + "'" + Model.IdCarro + "'" + ", 'ExcluirCarro')",
+    OnSuccess = "exibirMensagemDeRetorno",
+    OnFailure = "exibirMensagemDeRetorno"
+}, new { @class = "btn btn-danger btn-xs" })
+</td>

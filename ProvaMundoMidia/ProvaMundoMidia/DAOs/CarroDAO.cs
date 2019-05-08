@@ -37,10 +37,10 @@ namespace ProvaMundoMidia.DAOs
 
             MySqlCommand comando = new MySqlCommand(sql);
 
-            var CarrosEncontrados = RetornarDataTable(comando);
+            var carrosEncontrados = RetornarDataTable(comando);
             List<Carro> listaCarros = new List<Carro>();
 
-            foreach (DataRow row in CarrosEncontrados.Rows)
+            foreach (DataRow row in carrosEncontrados.Rows)
             {
                 Carro carro = new Carro
                 {
@@ -56,6 +56,30 @@ namespace ProvaMundoMidia.DAOs
             return listaCarros;
         }
 
+        public Carro BuscarCarroPorId(int id)
+        {
+            string sql = "select * from carro where id_carro = @idCarro";
+            MySqlCommand comando = new MySqlCommand(sql);
+            comando.Parameters.Add(new MySqlParameter("idCarro", id));
+
+            DataRow carroEncontrado = RetornarDataTable(comando).Rows[0];
+
+            if (carroEncontrado != null)
+            {
+                Carro carro = new Carro
+                {
+                    IdCarro = Convert.ToInt32(carroEncontrado["id_carro"]),
+                    Descricao = carroEncontrado["descricao"].ToString(),
+                    Modelo = carroEncontrado["modelo"].ToString(),
+                    Ano = Convert.ToInt32(carroEncontrado["ano"])
+                };
+
+                return carro;
+            }
+            return null;
+            
+        }
+
         public List<Carro> ConsultarCarrosPorNome(string busca)
         {
             string sql = "select * from carro where descricao like @nome";
@@ -63,10 +87,10 @@ namespace ProvaMundoMidia.DAOs
             MySqlCommand comando = new MySqlCommand(sql);
             comando.Parameters.Add(new MySqlParameter("nome", "%" + busca + "%"));
 
-            var CarrosEncontrados = RetornarDataTable(comando);
+            var carrosEncontrados = RetornarDataTable(comando);
             List<Carro> listaCarros = new List<Carro>();
 
-            foreach (DataRow row in CarrosEncontrados.Rows)
+            foreach (DataRow row in carrosEncontrados.Rows)
             {
                 Carro carro = new Carro
                 {

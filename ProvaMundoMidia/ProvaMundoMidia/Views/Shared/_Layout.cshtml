@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Prova Mundo Mídia</title>
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    
+
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -21,6 +22,15 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Carro")</li>
+                    <li>
+                        @Ajax.ActionLink("Cadastrar carro", "ObterModalCadastroEdicaoDeCarro", "Carro", new { idCarro = 0 }, new AjaxOptions()
+                   {
+                       UpdateTargetId = "cadastroEdicaoCarroPartial",
+                       InsertionMode = InsertionMode.Replace,
+                       LoadingElementDuration = 0,
+                       OnSuccess = "exibirModalCadastroEdicaoDeCarro"
+                   })
+                    </li>
                 </ul>
             </div>
         </div>
@@ -30,7 +40,11 @@
     </div>
 
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/ajax")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/js")
     @RenderSection("scripts", required: false)
 </body>
 </html>

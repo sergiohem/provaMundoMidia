@@ -1,0 +1,65 @@
+﻿@model ProvaMundoMidia.Models.Carro
+@{
+    Layout = null;
+}
+
+<div id="modalCadastroEdicaoDeCarro" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-sm" role="document">
+        @using (@Ajax.BeginForm("SalvarCarro", "Carro", new { acao = ViewBag.Acao },
+                            new AjaxOptions
+                            {
+                                HttpMethod = "POST",
+                                LoadingElementDuration = 0,
+                                UpdateTargetId = ViewBag.Acao == "CadastrarCarro" ? "tblCarros" : "",
+                                OnSuccess = ViewBag.Acao == "CadastrarCarro" ? "exibirAlertaDeSucesso('Carro cadastrado com sucesso!', 'modalCadastroEdicaoDeCarros')" : "exibirMensagemDeRetorno",
+                                OnFailure = "exibirMensagemDeRetorno",
+                                OnComplete = "atualizaLinhaTabelaCarro(" + "'" + Model.IdCarro + "'" + ", 'EditarCarro')"
+                            }, new { @id = "formCadastroEdicaoDeCarro" }
+                            ))
+        {
+            <div class="modal-content">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.IdCarro)
+
+                <div class="modal-header">
+                    <h4 class="modal-title">
+                        @ViewBag.TituloModal
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </h4>
+                </div>
+                <div class="modal-body">
+
+                    @Html.Label("Descrição", htmlAttributes: new { @class = "control-label" })
+                    <div class="form-group">
+                        @Html.EditorFor(model => model.Descricao, new { htmlAttributes = new { @id = "descricaoCarro", @class = "form-control" } })
+                    </div>
+
+                    @Html.Label("Modelo", htmlAttributes: new { @class = "control-label" })
+                    <div class="form-group">
+
+                        <div>
+                            @Html.EditorFor(model => model.Modelo, new { htmlAttributes = new { @id = "modeloCarro", @class = "form-control" } })
+                        </div>
+                    </div>
+
+                    @Html.Label("Ano", htmlAttributes: new { @class = "control-label" })
+                    <div class="form-group">
+
+                        <div>
+                            @Html.EditorFor(model => model.Ano, new { htmlAttributes = new { @id = "anoCarro", @class = "form-control" } })
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" onclick="submeterFormulario()" class="btn btn-primary">Salvar carro</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
