@@ -107,14 +107,7 @@ namespace ProvaMundoMidia.Controllers
 
         public PartialViewResult PesquisarCarrosPorDescricaoEModelo(FormCollection formulario)
         {
-            int anoBusca = -1;
-
-            if (!string.IsNullOrEmpty(formulario["buscaAnoCarro"]))
-            {
-                anoBusca = Convert.ToInt32(formulario["buscaAnoCarro"]);
-            }
-
-            List<Carro> carrosEncontrados = carroDAO.BuscarCarrosPorDescricaoEModelo(formulario["buscaDescricaoCarro"], formulario["buscaModeloCarro"], anoBusca);
+            List<Carro> carrosEncontrados = carroDAO.BuscarCarrosPorDescricaoEModelo(formulario["buscaDescricaoCarro"], formulario["buscaModeloCarro"]);
             return PartialView("~/Views/Carro/_TabelaCarros.cshtml", carrosEncontrados);
         }
 
