@@ -28,7 +28,7 @@ Siga os passos abaixo para executar o projeto em seu computador:
 <li>Extraia o arquivo .ZIP baixado em uma pasta de sua preferência.</li>
 <li>Abra a pasta extraída, e localize o arquivo <strong>"prova_mundo_midia_db.sql"</strong>. Em seguida, importe e execute esse arquivo na sua ferramenta de gerenciamento de banco de dados, para que o banco de dados seja criado.</li>
 <li>Abra a pasta "ProvaMundoMidia" e localize a <i>solution</i> <strong>"ProvaMundoMidia.sln"</strong>. Em seguida, execute essa <i>solution</i> em uma IDE de sua preferência.</li>
-<li>Assim que o projeto for carregado, faça a compilação da <i>solution</i> para que as dependências do projeto também sejam carregadas. Caso as dependências não sejam carregadas automaticamente após a compilação da <i>solution</i>, você poderá instalá-las manualmente através do gerenciador de pacotes de sua IDE (para esse desenvolvimento, o gerenciador utilizado foi o NuGet). Segue abaixo as dependências do projeto:
+<li>Assim que o projeto for carregado, faça a limpeza (Clean Solution) e em seguida a compilação (Build Solution) da <i>solution</i>, para que as dependências do projeto também sejam carregadas. Caso as dependências não sejam carregadas automaticamente após a compilação da <i>solution</i>, você poderá instalá-las manualmente através do gerenciador de pacotes de sua IDE (para esse desenvolvimento, o gerenciador utilizado foi o NuGet). Segue abaixo as dependências do projeto:
 <ul>
 <li>MySql.Data (neste projeto, foi utilizada a versão 6.9.12);</li>
 <li>MySql.Data.MySqlClient (subdependência da MySql.Data, na maioria dos casos é instalada automaticamente após a instalação da MySql.Data).</li>
